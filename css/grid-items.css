@@ -1,0 +1,23 @@
+/* GRID ITEMS */
+.grid-item {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    counter-increment: grid-conuter;
+    border: var(--WHITE-BORDER);
+  }
+  .grid-item::before {
+    content: "Grid Item";
+  }
+  .grid-item::after {
+    content: counter(grid-conuter);
+  }
+  
+  .grid-item:nth-child(odd) {
+    background-color: var(--LIGHT-BLUE);
+  }
+  .grid-item:nth-child(even) {
+    background-color: var(--DARK-BLUE);
+  }

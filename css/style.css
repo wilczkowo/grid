@@ -1,0 +1,69 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* font */
+
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* CONSTANTS */
+:root {
+  /* COLORS */
+  --BACKGROUND-COLOR: #333;
+  --LIGHT-COLOR: #b6b5b5;
+  --DARK-BLUE: rgb(49, 146, 216);
+  --LIGHT-BLUE: rgb(85, 182, 252);
+
+  /* BORDERS */
+  --WHITE-BORDER: solid white 1px;
+}
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+}
+
+body {
+  background-color: var(--BACKGROUND-COLOR);
+  padding: 2rem;
+  font-family: "Bruno Ace SC", cursive;
+  font-size: 2rem;
+  font-weight: bolder;
+  counter-reset: grid-conuter;
+}
+
+/* GRID CONTAINER */
+section {
+  display: grid;
+}
+
+
+/* GRID ITEMS */
+.grid-item {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  counter-increment: grid-conuter;
+  border: var(--WHITE-BORDER);
+}
+.grid-item::before {
+  content: "Grid Item";
+}
+.grid-item::after {
+  content: counter(grid-conuter);
+}
+
+.grid-item:nth-child(odd) {
+  background-color: var(--LIGHT-BLUE);
+}
+.grid-item:nth-child(even) {
+  background-color: var(--DARK-BLUE);
+}
